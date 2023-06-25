@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% block blogactive %}active{% endblock blogactive %}
+{% block css %}
+<style>
+.container{
+  {% comment %} min-hieght:150vh; {% endcomment %}
+}
+</style>
+{% endblock css %}
+{% block body %}
+<div class="container">
+
+
+<h1 class="my-3">Welcome to BlogEx blog...</h1>
+{% for blog in blogs %}
+<br>
+{% comment %} class="d-flex"-->read more button will appear at extreme right  {% endcomment %}
+<div class="my-4">
+    {% comment %} <div class="flex-shrink-0"> {% endcomment %}
+    </div> 
+    <div class="flex-grow-1 ms-3">
+    <h3><a href="/blogpost/{{blog.slug}}" class="text-dark">{{blog.title}}</a></h3>
+    <div class="my-2">
+      {{blog.short_desc|slice:245}} ..... 
+    </div> 
+    {% comment %} </div> {% endcomment %}
+    {% comment %} <button class="btn btn-primary">Read More</button> {% endcomment %}
+    <a href="/blogpost/{{blog.slug}}" class="text-dark"><button type="button" class="btn btn-success">Read More</button></a>
+  </div>
+  {% endfor %}
+</div>
+{% endblock body %}
