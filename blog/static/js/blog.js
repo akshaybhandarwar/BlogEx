@@ -15,6 +15,7 @@ const isSmallScreen = window.matchMedia('(max-width: 1023.5px)').matches;
 
 tinymce.init({
   selector: '#id_content',
+  paste_data_images:true,
   mobile: {
   menu: {
     tc: {
